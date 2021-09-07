@@ -1,0 +1,7 @@
+<button (click)="loadTodos()">Load data</button>
+
+<ul>
+  <li *ngFor="let todo of todos">
+    {{todo.id}}. {{todo.title}}
+  </li>
+</ul>
