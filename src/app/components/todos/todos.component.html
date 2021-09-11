@@ -1,7 +1,15 @@
 <button (click)="loadTodos()">Load data</button>
 
-<ul>
+<ul *ngIf="todos.length > 200 else noTodos">
   <li *ngFor="let todo of todos">
     {{todo.id}}. {{todo.title}}
   </li>
 </ul>
+
+<ng-template #noTodos>
+  <div *ngIf="false; else lessThan200"></div>
+</ng-template>
+
+<ng-template #lessThan200>
+  <h1>Less than 200 todos</h1>
+</ng-template>

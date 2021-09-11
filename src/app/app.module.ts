@@ -7,18 +7,26 @@ import { AppComponent } from './components/app/app.component';
 import { CounterInfoComponent } from './components/counter-info/counter-info.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { TodosComponent } from './components/todos/todos.component';
+import { LanguagePickerComponent } from './components/language-picker/language-picker.component';
+import { FormsModule } from '@angular/forms';
+import { TranslationTestComponent } from './components/translation-test/translation-test.component';
+import { TranslatePipe } from './pipes/translate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterInfoComponent,
     CounterComponent,
-    TodosComponent
+    TodosComponent,
+    LanguagePickerComponent,
+    TranslationTestComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

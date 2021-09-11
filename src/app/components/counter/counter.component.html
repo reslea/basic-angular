@@ -1,5 +1,9 @@
 <div class="counter">
-  <button class="counter-action" (click)="decrement()">Decrement</button>
+  <button class="counter-action" (click)="decrement()">
+    {{"decrement" | translate}}
+  </button>
   <span class="counter-number">{{counter}}</span>
-  <button class="counter-action" (click)="increment()">Increment</button>
+  <button class="counter-action" (click)="increment()">
+    {{"increment" | translate}}
+  </button>
 </div>

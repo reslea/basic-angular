@@ -24,6 +24,6 @@ export class CounterComponent {
   }
 
   updateCounter() {
-    this.counter = this.counterService.counter * 2;
+    this.counter = this.counterService.counter;
   }
 }
