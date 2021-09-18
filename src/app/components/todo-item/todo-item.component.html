@@ -1,0 +1,26 @@
+<div>
+  <span>{{todo.id}}</span>
+  <span *ngIf="!editMode else editInput">
+    <b
+      *ngIf="!todo.completed else completedTask"
+      (click)="toggleItem()"
+    >
+      {{todo.title}}
+    </b>
+  </span>
+  <button *ngIf="!editMode" (click)="startEditMode()">✏️</button>
+  <button (click)="removeItem()">❌</button>
+</div>
+
+<ng-template #editInput>
+  <input [(ngModel)]="todo.title">
+  <button (click)="editItem()">✔️ </button>
+</ng-template>
+
+<ng-template #completedTask>
+  <b (click)="toggleItem()">
+    <s>
+    {{todo.title}}
+    </s>
+  </b>
+</ng-template>

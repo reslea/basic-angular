@@ -1,15 +1,18 @@
-<button (click)="loadTodos()">Load data</button>
+<!-- <button (click)="loadTodos()">Load data</button> -->
 
-<ul *ngIf="todos.length > 200 else noTodos">
-  <li *ngFor="let todo of todos">
-    {{todo.id}}. {{todo.title}}
-  </li>
-</ul>
+<app-add-todo (add)="addTodo($event)"></app-add-todo>
+
+<div *ngIf="todos && todos.length > 0 else noTodos">
+  <app-todo-item
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (toggle)="toggleTodo(todo.id)"
+    (edit)="editTodo(todo.id, $event)"
+    (remove)="removeTodo(todo.id)"
+  >
+  </app-todo-item>
+</div>
 
 <ng-template #noTodos>
-  <div *ngIf="false; else lessThan200"></div>
-</ng-template>
-
-<ng-template #lessThan200>
-  <h1>Less than 200 todos</h1>
+  <h1>No todos</h1>
 </ng-template>

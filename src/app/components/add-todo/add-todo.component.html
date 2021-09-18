@@ -1,0 +1,14 @@
+<div>
+  <form (ngSubmit)="addTodo(); addTodoForm.reset();" #addTodoForm>
+    <input
+      [(ngModel)]="formData.title"
+      name="title"
+      #title="ngModel"
+      required
+    >
+    <button [disabled]="title.invalid" type="submit">Add</button>
+    <div class="invalid" *ngIf="title.dirty && title.invalid">
+      title is invalid
+    </div>
+  </form>
+</div>

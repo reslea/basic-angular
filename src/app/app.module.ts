@@ -11,6 +11,9 @@ import { LanguagePickerComponent } from './components/language-picker/language-p
 import { FormsModule } from '@angular/forms';
 import { TranslationTestComponent } from './components/translation-test/translation-test.component';
 import { TranslatePipe } from './pipes/translate.pipe';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { MyFormComponent } from './components/my-form/my-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { TranslatePipe } from './pipes/translate.pipe';
     TodosComponent,
     LanguagePickerComponent,
     TranslationTestComponent,
-    TranslatePipe
+    TranslatePipe,
+    TodoItemComponent,
+    AddTodoComponent,
+    MyFormComponent
   ],
   imports: [
     BrowserModule,

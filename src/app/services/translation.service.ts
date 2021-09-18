@@ -6,7 +6,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TranslationService {
-  public translations = {
+  public translations: { 
+    [key: string]: { 
+      [key: string] : string 
+    } 
+  } = {
     ru: ruTranslations,
     en: enTranslations
   }

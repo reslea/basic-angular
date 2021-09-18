@@ -1,0 +1,10 @@
+input.ng-dirty.ng-invalid {
+  border: red 2px solid;
+  &:focus-visible {
+    border: red 2px solid;
+  }
+}
+
+.invalid {
+  color: red;
+}
