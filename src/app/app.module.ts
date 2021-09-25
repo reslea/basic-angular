@@ -14,6 +14,7 @@ import { TranslatePipe } from './pipes/translate.pipe';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { MyFormComponent } from './components/my-form/my-form.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MyFormComponent } from './components/my-form/my-form.component';
     TranslatePipe,
     TodoItemComponent,
     AddTodoComponent,
-    MyFormComponent
+    MyFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

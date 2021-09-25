@@ -15,7 +15,7 @@ export class TranslatePipe implements PipeTransform {
   transform(value: string): string {
     const translations = this.translationService.translations;
     const currLanguage = this.langSevice.language$.value;
-    
+
     return translations[currLanguage][value] || value;
   }
 }

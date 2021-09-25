@@ -1,16 +1,22 @@
-<form (ngSubmit)="onSubmit(); loginForm.resetForm();" #loginForm="ngForm">
-  <div>
-    <input
-      [(ngModel)]="loginData.login"
-      placeholder="Login"
-      name="login"
-    >
-  </div>
-  <div>
-    <input
-      [(ngModel)]="loginData.password"
-      placeholder="Password"
-      name="password">
-  </div>
-  <button type="submit">Login</button>
-</form>
+<h1 *ngIf="isLoggedIn else form">
+  Hello {{username}}!
+</h1>
+
+<ng-template #form>
+  <form (ngSubmit)="onSubmit(); loginForm.resetForm();" #loginForm="ngForm">
+    <div>
+      <input
+        [(ngModel)]="loginData.username"
+        placeholder="Username"
+        name="username"
+      >
+    </div>
+    <div>
+      <input
+        [(ngModel)]="loginData.password"
+        placeholder="Password"
+        name="password">
+    </div>
+    <button type="submit">Login</button>
+  </form>
+</ng-template>

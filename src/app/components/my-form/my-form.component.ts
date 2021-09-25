@@ -1,4 +1,6 @@
+import { AuthService, LoginModel } from './../../services/auth.service';
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-my-form',
@@ -6,12 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-form.component.scss']
 })
 export class MyFormComponent {
-  loginData = {
-    login: '',
+  loginData: LoginModel = {
+    username: '',
     password: ''
   };
 
+  isLoggedIn = false;
+  username = '';
+
+  constructor(private readonly authService: AuthService) {
+
+  }
+
   onSubmit(): void {
-    console.log(this.loginData);
+    this.authService.login(this.loginData)
+      .subscribe((tokenData) => {
+        this.isLoggedIn = true;
+        this.username = tokenData.username;
+      });
   }
 }
