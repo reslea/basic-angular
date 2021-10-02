@@ -1,6 +1,7 @@
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
@@ -15,6 +16,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { MyFormComponent } from './components/my-form/my-form.component';
 import { LoginComponent } from './components/login/login.component';
+import { EnsureLoginComponent } from './components/ensure-login/ensure-login.component';
+import { EnsureAdditionalAccessComponent } from './components/ensure-additional-access/ensure-additional-access.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { LoginComponent } from './components/login/login.component';
     TodoItemComponent,
     AddTodoComponent,
     MyFormComponent,
-    LoginComponent
+    LoginComponent,
+    EnsureLoginComponent,
+    EnsureAdditionalAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,11 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

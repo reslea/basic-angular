@@ -1,6 +1,6 @@
 import { AuthService, LoginModel } from './../../services/auth.service';
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-form',
@@ -16,7 +16,9 @@ export class MyFormComponent {
   isLoggedIn = false;
   username = '';
 
-  constructor(private readonly authService: AuthService) {
+  constructor(
+    private readonly authService: AuthService,
+    private router: Router) {
 
   }
 
@@ -25,6 +27,11 @@ export class MyFormComponent {
       .subscribe((tokenData) => {
         this.isLoggedIn = true;
         this.username = tokenData.username;
+        this.router.navigate(['']);
       });
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

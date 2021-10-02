@@ -1,5 +1,7 @@
 <h1 *ngIf="isLoggedIn else form">
   Hello {{username}}!
+
+  <button (click)="logout()">Log out</button>
 </h1>
 
 <ng-template #form>
