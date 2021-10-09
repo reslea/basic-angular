@@ -25,6 +25,19 @@ export interface LoginModel {
   password: string
 }
 
+export interface RegisterModel {
+  email: string,  
+  username: string,
+  password: string,
+  passwordConfirm: string,
+}
+
+export interface RegisterSubmitModel {
+  email: string,  
+  username: string,
+  password: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,10 +48,23 @@ export class AuthService {
   tokenData$ = new BehaviorSubject<TokenData>(null);
 
   constructor(public client: HttpClient) { }
+  
+  register(model: RegisterSubmitModel) {
+    return this.client
+      .post<Token>(`${this.apiUrl}/register`, model)
+      .pipe(
+        tap(t => this.token$.next(t.token)),
+        map(t => {
+          const tokenData = this.readTokenData(t);
+          this.tokenData$.next(tokenData);
+          return tokenData
+        }),
+      );
+  }
 
   login(loginModel: LoginModel): Observable<TokenData> {
     return this.client
-      .post<Token>(this.apiUrl, loginModel)
+      .post<Token>(`${this.apiUrl}/login`, loginModel)
       .pipe(
         tap(t => this.token$.next(t.token)),
         map(t => {

@@ -18,6 +18,7 @@ import { MyFormComponent } from './components/my-form/my-form.component';
 import { LoginComponent } from './components/login/login.component';
 import { EnsureLoginComponent } from './components/ensure-login/ensure-login.component';
 import { EnsureAdditionalAccessComponent } from './components/ensure-additional-access/ensure-additional-access.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EnsureAdditionalAccessComponent } from './components/ensure-additional-
     MyFormComponent,
     LoginComponent,
     EnsureLoginComponent,
-    EnsureAdditionalAccessComponent
+    EnsureAdditionalAccessComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,52 @@
+<form (ngSubmit)="onSubmit();" #registerForm>
+  <div>
+    <input 
+      #email="ngModel"
+      type="email"
+      name="email"
+      [(ngModel)]="model.email"       
+      placeholder="email"
+      required
+      maxlength="255"
+    >
+  </div>
+  <div>
+    <input 
+      #username="ngModel"
+      name="username"
+      [(ngModel)]="model.username"       
+      placeholder="username"
+      required
+      maxlength="255"
+    >
+  </div>
+  <div>
+    <input 
+      #password="ngModel"
+      type="password"
+      name="password"
+      [(ngModel)]="model.password"       
+      placeholder="password"
+      required
+      maxlength="255"
+    >
+  </div>
+  <div>
+    <input 
+      #passwordConfirm="ngModel"
+      type="password"
+      name="passwordConfirm"
+      [(ngModel)]="model.passwordConfirm"       
+      placeholder="password confirmation"
+      required
+      maxlength="255"
+    >
+  </div>
+  <div>
+    <button type="submit"
+      [disabled]="!password?.touched || !password?.valid || !passwordConfirm?.touched || !passwordConfirm?.valid || password !== passwordConfirm"
+    >
+      Register
+    </button>
+  </div>
+</form>

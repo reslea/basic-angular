@@ -6,11 +6,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EnsureLoginComponent } from './components/ensure-login/ensure-login.component';
 import { Permission } from './services/auth.service';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'ensure-login', pathMatch: 'full' },
   { path: 'login', component: MyFormComponent },
+  { path: 'register', component: RegisterComponent },
   { 
     path: 'ensure-login', 
     component: EnsureLoginComponent, 
