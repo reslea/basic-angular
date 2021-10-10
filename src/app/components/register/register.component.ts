@@ -1,6 +1,6 @@
 import { RegisterSubmitModel } from './../../services/auth.service';
 import { Component, OnInit, NgModule } from '@angular/core';
-import { AuthService, RegisterModel } from 'src/app/services/auth.service';
+import { AuthService, RegisterModel } from './../../services/auth.service';
 
 @Component({
   selector: 'app-register',
